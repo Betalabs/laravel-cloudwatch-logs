@@ -9,27 +9,35 @@
             "email": "developer.naren@gmail.com"
         }
     ],
-    "autoload" : {
-      "psr-4" : {
-          "Pagevamp\\" : "src/",
-          "Tests\\": "tests/"
-      }
+    "autoload": {
+        "psr-4": {
+            "Pagevamp\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "require": {
-        "maxbanton/cwh": "^1.1",
-        "illuminate/support": "^5.1"
+        "php": "^8.2",
+        "maxbanton/cwh": "^3.0",
+        "illuminate/support": "^10.0 || ^11.0 || ^12.0"
     },
     "extra": {
         "laravel": {
             "providers": [
                 "Pagevamp\\Providers\\CloudWatchServiceProvider"
             ]
-
         }
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^2.12",
-        "phpunit/phpunit": "^6.5",
-        "mockery/mockery": "^1.2"
+        "phpunit/phpunit": "^11.0",
+        "mockery/mockery": "^1.6",
+        "illuminate/container": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/config": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/events": "^10.0 || ^11.0 || ^12.0",
+        "illuminate/log": "^10.0 || ^11.0 || ^12.0",
+        "vlucas/phpdotenv": "^5.4"
     }
 }

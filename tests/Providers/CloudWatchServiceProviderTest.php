@@ -10,13 +10,13 @@ use Monolog\Formatter\LineFormatter;
 use Monolog\Logger;
 use Pagevamp\Providers\CloudWatchServiceProvider;
 
-class CloudWatchServiceProviderTest extends \PHPUnit\Framework\TestCase
+class CloudWatchServiceProviderTest extends \Tests\TestCase
 {
     public function testGetLoggerShouldResolveCustomFormatterInstanceFromConfiguration()
     {
         $cloudwatchConfigs = [
             'name' => '',
-            'region' => '',
+            'region' => 'us-east-1',
             'credentials' => [
                 'key' => '',
                 'secret' => '',
@@ -44,7 +44,7 @@ class CloudWatchServiceProviderTest extends \PHPUnit\Framework\TestCase
 
         $app = \Mockery::mock(Application::class);
         $app->shouldReceive('make')
-            ->once()
+            ->twice()
             ->with('config')
             ->andReturn($config);
         $app->shouldReceive('make')
@@ -67,7 +67,7 @@ class CloudWatchServiceProviderTest extends \PHPUnit\Framework\TestCase
     {
         $cloudwatchConfigs = [
             'name' => '',
-            'region' => '',
+            'region' => 'us-east-1',
             'credentials' => [
                 'key' => '',
                 'secret' => '',
@@ -95,11 +95,11 @@ class CloudWatchServiceProviderTest extends \PHPUnit\Framework\TestCase
 
         $app = \Mockery::mock(Application::class);
         $app->shouldReceive('make')
-            ->once()
+            ->twice()
             ->with('config')
             ->andReturn($config);
         $app->shouldReceive('make')
-            ->once()
+            ->never()
             ->with(JsonFormatter::class)
             ->andReturn($formatter);
 
